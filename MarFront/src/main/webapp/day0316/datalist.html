@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	textarea {
+		resize : none;
+	}
+</style>
+</head>
+<body>
+	<form>
+		<h4>좋아하는 동물</h4>		
+		<input type="text" name="cat" list="cats">	
+		<datalist id="cats">
+			<option value="고양이">
+			<option value="호랑이">
+			<option value="사자">		
+		</datalist>
+		<h4>memo</h4>
+		<textarea name="memo" rows="5" cols="30" placeholder="메모를 남기세요"></textarea>
+		
+		<h4>진행 상태 보여주기</h4>
+		<progress value="30" max="100"></progress>
+		<progress value="50" max="100"></progress>
+		<progress value="50" max="60"></progress>
+		
+		<h4>meter</h4>
+		<label>점유율 80%</label>	
+		<meter value="0.8"></meter><br> <!-- 0 ~ 1 -->
+		<label>점유율 64%</label>	
+		<meter min="0" max="100"  value="64"></meter><br>
+		<label>허용벙위</label>
+		<meter min="1024" max="10240" low="2048" high="8192" value="5000"></meter>
+		<label>최저값 지정</label>
+		<meter value="0.9" optimum="0.8" low="0.3" high="0.7"></meter><br>
+
+				
+		<input type="submit" value="전송">
+	</form>
+	
+	<form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+		<input type="number" name="num1" value="0">
+		+<input type="number" name="num2" value="0">
+		=<output name="result" for="num"></output>
+	</form>
+</body>
+</html>

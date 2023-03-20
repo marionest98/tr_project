@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<fieldset >
+	<h1>개발자 지원서</h1>
+	HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.
+	<hr/>
+	<form>		
+		<dl>
+			<dt>
+				<h3>개인정보</h3>
+			</dt>
+			<dd>
+				<label for="name"> 이름 : </label> <input type="text" id="name" autofocus
+					name="name" placeholder="공백없이 입력하세요"><br>
+				<label for="class">연락처</label>
+				<select id="phon" name="no">
+					<option value="010">010</option>
+					<option value="011" label="011"/>
+					<option value="031">031</option>
+				</select>
+					<input type="text" size="5" maxlength="5"> - <input type="text" size="5" maxlength="5"><br>
+					<input type="radio" id="free" name="pay" value="free">
+				<label for="free">남</label>		
+				<input type="radio" id="paid" name="pay" value="paid">
+				<label for="paid">여</label>					
+			</dd>
+		</dl>
+		
+		<dl>
+			<dt><h3>지원분야</h3>
+			</dt>
+			<dd>
+				<input type="checkbox" id="insta" name="sns" value="instagram">
+				<label for="insta">웹 퍼블리싱</label><br>
+				<input type="checkbox" id="kakao" name="sns" value="kakaotalk">
+				<label for="kakao">웹 애플리케이션 개발</label><br>
+				<input type="checkbox" id="line" name="sns" value="line">
+				<label for="line">개발 환경 개선</label>
+			
+			</dd>		
+		</dl>
+		<h3>지원동기</h3>
+		<textarea name="memo" rows="6" cols="60" placeholder="봉사 지원 동기를 간략히 써 주세요"></textarea><br>
+		<input type="submit" value="접수하기">
+		<input type="reset" value="다시 쓰기">
+	</form>
+</fieldset>
+</body>
+</html>
