@@ -1,0 +1,4 @@
+true
+String
+100
+A
