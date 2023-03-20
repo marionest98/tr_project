@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>new document</title>
+<SCRIPT>
+	let scope = "global";
+	function f() {
+	  //var scope; - 호이스팅
+		alert(scope);
+		var scope = "local";
+		alert(scope);
+	}
+	f();
+	
+	if (true) {
+		 test = true; //let이 붙으면 지역변수가 되서 다른곳에서 사용못함
+		}
+		alert(test); // true(if 문이 끝났어도 변수에 여전히 접근할 수 있음)전역변수
+	
+	
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

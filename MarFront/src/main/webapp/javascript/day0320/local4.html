@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <SCRIPT>
+  let scope = "global";
+  function checkscope(){
+	let scope="local";
+	function nested(){
+		 let scope = "nest";
+		 document.write(scope);//nest
+	}
+	document.write(scope);//local
+	nested();//nest
+  }
+  checkscope(); //lacalnest
+  nested();//메모리에서 지워져서 불러우지 못하므로 에러 발생 
+
+  document.write(scope);//에러발생으로 실행안함
+ 
+  </script>
+ </head>
+ <body></body></html>
