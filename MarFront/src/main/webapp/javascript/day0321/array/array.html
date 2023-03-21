@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let myArray1 = new Array();
+		myArray1[0] = "apple";
+		myArray1[1] = "banana";
+		myArray1[2] = "orange";
+		
+		let myArray2 = new Array("apple","banana","orange");
+		let myArray3 = ["apple","banana","orange"];
+		
+		function printArray(a) {
+			document.write("[");
+			document.write(a);
+			document.write("]<br>");
+		}
+		printArray(myArray1);
+		printArray(myArray2);
+		printArray(myArray3);
+		
+		let myArray4 = new Array();
+		
+		myArray4['a']= "apple";
+		myArray4['b']= "banana";
+		
+		document.write(myArray4['a']+"<br>");
+		document.write(myArray4[0]+"<br>");
+		
+	</script>
+</body>
+</html>

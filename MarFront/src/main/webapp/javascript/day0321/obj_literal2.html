@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	let banana = {name :"바나나",
+				  price : 1500,
+				  calcPrice : function(count = 0){
+					  return count * this.price;
+				  }				  
+				 };
+	
+	let melon = {name :"멜론",
+				 price : 7000,
+			 	 calcPrice : function(count = 0){
+				 return count * this.price;
+				 }				  
+				};
+	
+	document.write(banana.name+"3개 가격 : "+banana.calcPrice(3)+"원<br>");
+	document.write(melon.name+"2개 가격 : "+melon.calcPrice(2)+"원<br>");
+	
+</script>
+</body>
+</html>
