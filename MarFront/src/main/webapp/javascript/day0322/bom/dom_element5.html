@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function showMessage(input, str) {
+			input.nextSibling.innerHTML=str;
+		}
+	</script>
+</head>
+<body>
+<form name="myform1">
+	이름:<input type="text" onfocus="showMessage(this, '이름을 입력하시오')"
+	onblur="showMessage(this, '')"><span></span><br>
+	나이:<input type="text" onfocus="showMessage(this, '나이을 입력하시오')"
+	onblur="showMessage(this, '')"><span></span><br>
+	주소:<input type="text" onfocus="showMessage(this, '주소을 입력하시오')"><span></span>
+</form>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <script>
     let myArray = [10, 7, 23, 99, 169, 19, 11, 1];
-    myArray.sort(function (a, b) { return a - b });
-    document.writeln(myArray+"<br>");
-   
+    myArray.sort(function (a, b) { return a - b });//오름차순
+    document.writeln(myArray+"<br>");  
+    myArray.sort(function (a, b) { return b - a });//내림차순
+    document.writeln(myArray+"<br>");  
 </script>
