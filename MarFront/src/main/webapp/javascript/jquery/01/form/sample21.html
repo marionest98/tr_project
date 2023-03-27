@@ -6,10 +6,10 @@
 <script>
 	$(function() {
 		$("select").change(function() {
-			if ($(":selected").val() == "10 대") {//선택된 option태그
+			if ($(":selected").val() == "10 대"){//선택된 option태그
 				$("input").val("");
 				$("input").attr("disabled", "disabled");
-			} else {
+			}else{
 				$("input").removeAttr("disabled");
 			}
 		});

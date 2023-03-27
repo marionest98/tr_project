@@ -29,7 +29,8 @@ $(function(){
 			
 			//메일 어드레스 체크
 			$(this).filter(".mail").each(function(){
-				if($(this).val() && !$(this).val().match(/.+@.+\..+/g)){
+				if($(this).val() && !$(this).val().match(/.+@.+\..+/g)){ 
+					//   /.+@.+\..+/g   =>   .+@.+\..+   =>    .+(수량한정자)  @  .+  \.  .+
 					$(this).parent().prepend("<p class='error'>메일 어드레스 형식이 잘 못 되었습니다.</p>");
 				}
 			});

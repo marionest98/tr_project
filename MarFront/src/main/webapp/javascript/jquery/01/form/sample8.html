@@ -7,7 +7,8 @@
 		<script>
 $(function(){
 	$("form").submit(function(){
-		if($("input[name='name']").val()==""){
+		let name = $("input[name='name']").val();
+		if(name.trim() == ""){
 			if($("span").css("color") != "rgb(255, 0, 0)"){
 				$("input[name='name']").css("border","1px solid red")
 									 .after("<span>이름을 입력해 주세요</span>");
