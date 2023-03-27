@@ -14,6 +14,16 @@
 	$(function(){
 		console.log($("#example").attr("checked"));
 		console.log($("#example").prop("checked"));
+		
+		/* $("#example").attr("checked","checked");
+		
+		console.log($("#example").attr("checked"));
+		console.log($("#example").prop("checked")); */
+		
+		$("#example").prop("checked", false);
+		
+		console.log($("#example").attr("checked"));
+		console.log($("#example").prop("checked"));
 	});
 </script>
 </body>
