@@ -28,15 +28,15 @@
 							let teacher = $(xml).find("teacher").text();
 							
 							// 추출된 데이터를 화면에 출력하기 위한 HTML요소를 동적으로 생성
-							let div = $("<div>");//div태그 객체 생성
-							let p1 = $("<p>").html(title);//과목명이 들어간 p태그 객체 생성
-							let p2 = $("<p>").html(time);//시간표가 들어간 p태그 객체 생성
-							let p3 = $("<p>").html(teacher);//교사명이 들어간 p태그 객체 생성
+							let div = $("<div>");//div태그 객체 생성 <div></div>
+							let p1 = $("<p>").html(title);//과목명이 들어간 p태그 객체 생성<p>Javascript+jQuery+Ajax</p>
+							let p2 = $("<p>").html(time);//시간표가 들어간 p태그 객체 생성<p>월/수/금 7시~ 오후 10시</p>
+							let p3 = $("<p>").html(teacher);//교사명이 들어간 p태그 객체 생성<p>박성순</p>
 															//객체 생성. 아직 화면 출력X
 															
 							// 메서드 체인을 사용한 동적 요소의 결합
 							div.append(p1).append(p2).append(p3);
-							
+							//<div><p>Javascript+jQuery+Ajax</p><p>월/수/금 7시~ 오후 10시</p><p>박성순</p></div>
 							// 화면에 표시
 							$("#result").append(div);
 						})

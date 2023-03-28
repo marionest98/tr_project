@@ -30,7 +30,7 @@ $(function(){
 			//메일 어드레스 체크
 			$(this).filter(".mail").each(function(){
 				if($(this).val() && !$(this).val().match(/.+@.+\..+/g)){ 
-					//   /.+@.+\..+/g   =>   .+@.+\..+   =>    .+(수량한정자)  @  .+  \.  .+
+					//   /.+@.+\..+/g   =>   .+@.+\..+   =>    .+  @  .+  \.  .+             (+ = 수량한정자) (.+ = 한글자이상) (\. = .문자)
 					$(this).parent().prepend("<p class='error'>메일 어드레스 형식이 잘 못 되었습니다.</p>");
 				}
 			});
@@ -61,7 +61,7 @@ $(function(){
 		});
 		
 		// 그 외 항목 체크
-		$(".validate.add_text").each(function(){
+		$(".validate.add_text").each(function(){        //input[name=  etc_text  ]
 			if($(this).is(":checked") && $("input[name="+$(this).attr("name").replace(/^(.+)$/, "$1_text")+"]").val()==""){
 				$(this).parent().prepend("<p class='error'>그 외의 항목을 입력해 주세요</p>");
 			}
@@ -142,7 +142,7 @@ dl dd p.error{
 			<dt>이름<span> ※ </span></dt>
 			<dd><input type="text" name="name" size="80" class="validate required" /></dd>
 			<dt>우편번호</dt>
-			<dd><input type="text" name="zip1" size="4" maxlength="4" class="validate number" /> - <input type="text" name="zip2" size="3" maxlength="3" class="validate number" /></dd>
+			<dd><input type="text" name="zip" size="5" maxlength="5" class="validate number" /></dd>
 			<dt>이메일</dt>
 			<dd><input type="text" value="" size="80" name="mail" class="validate mail"/></dd>
 			<dt>이메일(확인)</dt>
