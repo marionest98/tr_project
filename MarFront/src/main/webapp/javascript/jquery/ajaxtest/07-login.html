@@ -19,10 +19,10 @@
 
             /** 폼 영역의 크기 및 테두리 */
             #login fieldset {
-                width: 270px;
+                width: 300px;
                 padding: 15px;
                 border: 1px solid #7BAEB5;
-                position: relative;
+                position: relative; /** 자식태그에 absolute를 사용할수 있다.*/ 
             }
 
             #login fieldset legend {
@@ -40,7 +40,7 @@
             }
 
             /** 기본 입력박스의 형태 지정 */
-            #login input[type='text'], #login input[type='password'] {
+            #login input[type='text'], #login input[type='password'] { /** #login :text, #login :password */
                 border: 1px solid #ccc;
                 padding: 3px 10px;
                 width: 150px;
@@ -126,7 +126,7 @@
                     /** 로그인처리에 대한 JSP예시 */
                     let url = "ajax/login/login.jsp";
 
-                    // $(this).serialize() 
+                    // $(this).serialize() = data {user_name:"아이디입력값", user_password:"비밀번호입력값"}
                     // : form에 입력한 값들을 전부 꺼내와서 쿼리문자열 형식으로 만들어준다.
                     //user_name=아이디입력값&user_password=비밀번호입력값
                     
@@ -155,8 +155,8 @@
                     });
 
                     return false;
-                });//on
-            });
+                });//on-submit
+            });//ready
         </script>
     </head>
     <body>

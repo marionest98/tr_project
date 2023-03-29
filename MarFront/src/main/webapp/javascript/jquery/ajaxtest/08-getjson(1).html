@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button>클릭</button>
+<div id="result1"></div>
+<div id="result2"></div>
+<script src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+	$(function() {
+		$("button").click(function() {
+			$.getJSON("https://jsonplaceholder.typicode.com/users", function(data) {
+				let user = data[0];
+				/* $("#result1").append(
+					"번호 : "+user.id+" 이름 : "+user["name"]+" 회사명 : "+user.company.name+"<br>"					
+				)
+				data.forEach(function(item, index) {
+					$("#result2").append(`${item.address.street} ${item.address.suite} 
+					${item.address.city} ${item.address.geo.lat} ${item.address.geo.lng} <br>`)
+				}) */
+				$.each(data, function(i,e) {
+					$("#result2").append(`${e.address.street} ${e.address.suite} 
+					${e.address.city} ${e.address.geo.lat} ${e.address.geo.lng} <br>`)
+				})
+			});//ajax			
+		});//click
+	});//ready
+</script>
+</body>
+</html>

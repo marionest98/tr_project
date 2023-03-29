@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화인 검색</title>
+</head>
+<body>
+<input type="search" id="name">
+<button id="s">검색</button>
+<div id="f"></div>
+<br>
+<div id="sr"></div>
+<script src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+	$(function() {
+		$("#name").focus();
+		$("#s").on("click",function() {
+			let pn = $("#name").val();
+			if(!pn){alert("아이디를 입력하세요."); 
+					$("#name").focus(); 
+					return false;
+			};
+			$("*#sr").empty();			
+			//alert(pn);
+			let url = "https://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=f5eef3421c602c6cb7ea224104795888";
+			$.getJSON(url, {peopleNm:pn}, function(data) {
+				let pl = data.peopleListResult.peopleList;
+				let tc = data.peopleListResult.totCnt;
+				$("#f").html(pn+"의 검색결과 : "+tc+"개");
+				$.each(pl, function(i,e) {
+					$("#sr").append("<p>"+pl[i].peopleNm+" : "+pl[i].repRoleNm+"<br>"+"필모그래피 : "+pl[i].filmoNames+"<hr>"+"</p>");
+				})//each
+			})//get
+		})//click
+	});//ready
+</script>
+</body>
+</html>
