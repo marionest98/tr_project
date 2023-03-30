@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<button id="btn">회원 정보 확인</button>
+	<table border="1">	
+		<thead>
+			<tr><th>번호</th><th>이름</th><th>나이</th><th>성별</th></tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<script src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+	$(function name() {
+		$("#btn").click(function() {
+			$.ajax({
+				url:"getPerson.jsp",
+				type:"get",
+				datatype:"json"
+			}).done(function(data) {
+				data.forEach(function(person, index) {
+					$("tbody").append("<tr>")
+					$("tbody").append(`
+							<td>${index+1}</td>
+							<td>${person.name}</td>
+							<td>${person.age}</td>
+							<td>${person.gender}</td>
+							`
+					);
+					$("tbody").append("</tr>")
+				})
+			});			
+		});
+	});	
+	</script>
+</body>
+</html>

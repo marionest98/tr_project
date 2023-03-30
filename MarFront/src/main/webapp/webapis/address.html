@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form name="post">
+	<label for="zonecode">우편번호</label>
+	<input name="zonecode" id="zonecode" readonly>
+	<button type="button" onclick="searchPostcode()">우편번호 검색</button><br>
+	<label for="address">주소</label>
+	<input name="address" id="address" size="50">
+</form>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function searchPostcode(){	
+    new daum.Postcode({
+        oncomplete: function(data) {
+        	let addr = '';
+        	if(data.userSelectedType === 'R'){
+        		addr = data.roadAddress;
+        	}else{
+        		addr = data.jibunAddress;	
+        	}        	
+            document.getElementById("zonecode").value = data.zonecode;
+            document.getElementById("address").value = addr;
+        }
+    }).open();
+}
+</script>
+</body>
+</html>

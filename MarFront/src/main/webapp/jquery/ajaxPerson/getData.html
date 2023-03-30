@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button id="mybtn">눌러보세요</button>
+	<div id="result"></div>
+	
+	<script src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+		$(function() {
+			$("#mybtn").click(function() {
+				$.getJSON("data.jsp", function(list) {
+					//console.log(list);
+					for(let i in list) {
+						for(let j in list[i]){
+							$("#result").append("<h4>"+list[i][j]+"</h4>");
+						}						
+					}
+				});//ajax
+			});//click
+		});//ready
+	
+	
+	
+	
+	</script>
+</body>
+</html>
