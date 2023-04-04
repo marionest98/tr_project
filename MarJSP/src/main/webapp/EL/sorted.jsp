@@ -1,4 +1,5 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="el.Member, java.util.*" %>
 <html>
 <head><title>EL 정렬</title></head>
@@ -16,7 +17,10 @@ ${ vals = [20, 17, 30, 2, 9, 23] ;
     request.setAttribute("members", memberList);
 %>
 ${ sortedMem = members.stream().sorted((m1, m2) -> m1.age.compareTo(m2.age)).toList() ; ''}
-
-${ sortedMem }
+${sortedMem}<br>
+${sortedMem[0].name}
+<c:forEach var="mem" items="${sortedMem}">
+	${mem.name} = ${mem.age}
+</c:forEach>
 </body>
 </html>
