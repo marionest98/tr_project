@@ -16,21 +16,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import mvc.command.CommandHandler;
 import mvc.command.NullHandler;
 
-@WebServlet(value="/controllerUsingFile")
-public class ControllerUsingFile extends HttpServlet {
+@WebServlet(value="*.do")
+public class ControllerUsingURI extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-        
-	// <커맨드, 핸들러인스턴스> 매핑 정보 저장
-    private Map<String, CommandHandler> commandHandlerMap = 
-    		new HashMap<>();
+    // <커맨드, 핸들러인스턴스> 매핑 정보 저장
+    private Map<String, CommandHandler> commandHandlerMap = new HashMap<>();
 
     public void init() throws ServletException {
+       // String configFile = getInitParameter("configFile");
         Properties prop = new Properties();
-        String configFilePath = getServletContext().getRealPath("/WEB-INF/commandHandler.properties");
-								//어플리케이션 경로 + 안에 있는 경로
+        String configFilePath = getServletContext().getRealPath("/WEB-INF/commandHandlerURI.properties");
         try (FileReader fis = new FileReader(configFilePath)) {
-            prop.load(fis);//스트림 통해서 읽어온 데이터를 properties객체에 저장
+            prop.load(fis);
         } catch (IOException e) {
             throw new ServletException(e);
         }
@@ -40,12 +37,8 @@ public class ControllerUsingFile extends HttpServlet {
             String handlerClassName = prop.getProperty(command);
             try {
                 Class<?> handlerClass = Class.forName(handlerClassName);
-				//클래스명에 맞는 클래스 찾아서
-                CommandHandler handlerInstance = 
-                        (CommandHandler) handlerClass.newInstance();
-						//객체 생성
+                CommandHandler handlerInstance = (CommandHandler) handlerClass.newInstance();
                 commandHandlerMap.put(command, handlerInstance);
-				//요청 - 생성한 객체를 매핑해 map에 저장
             } catch (ClassNotFoundException | InstantiationException 
             		| IllegalAccessException e) {
                 throw new ServletException(e);
@@ -56,7 +49,7 @@ public class ControllerUsingFile extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         process(request, response);
-    }//response 클라이언트에 전달
+    }
 
     protected void doPost(HttpServletRequest request,
     HttpServletResponse response) throws ServletException, IOException {
@@ -65,7 +58,10 @@ public class ControllerUsingFile extends HttpServlet {
 
     private void process(HttpServletRequest request,
     HttpServletResponse response) throws ServletException, IOException {
-        String command = request.getParameter("cmd");
+		String command = request.getRequestURI();
+		if (command.indexOf(request.getContextPath()) == 0) {
+			command = command.substring(request.getContextPath().length());
+		}
         CommandHandler handler = commandHandlerMap.get(command);
         if (handler == null) {
             handler = new NullHandler();

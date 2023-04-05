@@ -14,5 +14,16 @@
 	<a href="simple?type=date">simple_date</a><br>
 	<a href="simple?type=test">simple_test</a><br>
 	<a href="controllerUsingFile?cmd=hello">model_hello</a><br>
+	<a href="hello.do">hello.do</a><br>
+	<a href="a.do">a.do</a><br>
+	<form action="b.do">
+		<select name="menu">
+			<option value="치킨">치킨</option>
+			<option value="피자">피자</option>
+			<option value="햄버거">햄버거</option>
+		</select>
+		<input type="submit">
+	</form>
+	<a href="inputForm.do">회원가입</a>
 </body>
 </html>
