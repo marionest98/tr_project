@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/applicationContext.xml</config>
 		<config>src/main/resources/anno.xml</config>
+		<config>src/main/resources/aop.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
