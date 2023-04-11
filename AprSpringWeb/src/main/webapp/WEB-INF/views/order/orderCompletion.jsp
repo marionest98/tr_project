@@ -10,7 +10,7 @@
 	<br/>주문 아이템
 	<ul>
 		<c:forEach var="item" items="${order.orderItems}">
-			<li>${item.itemId} / ${item.number} / ${item.remark}</li>
+			<li>${item.itemId} / ${item.number} / ${item.remark}</li><!-- <li>${item}</li> toString --> 
 		</c:forEach>
 	</ul>
 	배송지: ${order.address}

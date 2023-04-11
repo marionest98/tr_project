@@ -1,4 +1,4 @@
-package com.example.Controller;
+package com.example.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.command.A;
+import com.example.command.ACommand;
 
 @Controller
-@RequestMapping("/a/a")
-public class Acontroller {
+@RequestMapping("a")
+public class AController {
 	
 	@GetMapping
 	public String aform() {
@@ -18,7 +18,8 @@ public class Acontroller {
 	}
 	
 	@PostMapping
-	public String asubmit(A a) {
+	public String asubmit(@ModelAttribute("a") ACommand a) {
+		System.out.println(a);
 		return "a/submit";
 	}
 	

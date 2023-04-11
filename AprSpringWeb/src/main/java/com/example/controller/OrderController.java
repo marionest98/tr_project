@@ -1,4 +1,4 @@
-package com.example.Controller;
+package com.example.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +17,10 @@ public class OrderController {
 	
 	@GetMapping
 	public String form() {
-		return "order/orderForm";
+		return "order/orderForm"; //view name
 	}
 	@PostMapping
 	public String submit(@ModelAttribute("order") OrderCommand orderCommand) {
-		return "order/orderCompletion";
+		return "order/orderCompletion"; //view name
 	}
 }
