@@ -9,7 +9,7 @@
 		<fieldset>
 			이름 : <input type="text" name="name"><br>
 			나이 : <input type="text" name="age"><br>
-			생일 : <input type="text" name="birth" placeholder="yyyyMMdd"><br>
+			생일 : <input name="birth" placeholder="yyyyMMdd"><br>
 			좋아하는 동물 :
 			강아지<input type="checkbox" name="pet" value="강아지">
 			고양이<input type="checkbox" name="pet" value="고양이">

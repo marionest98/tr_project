@@ -1,8 +1,14 @@
 package com.example.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 @Controller
 public class HelloController {
@@ -11,6 +17,19 @@ public class HelloController {
 	public void hello(Model m) {
 		m.addAttribute("hello", "hello,spring!");
 		//return "hello";//view name
+	}
+	
+	@GetMapping("/jsondata")
+	@ResponseBody
+	public String getJson() {
+		List<String> list = new ArrayList<>();
+		list.add("apple");
+		list.add("banana");
+		list.add("tomato");
+		list.add("사과");
+		
+		Gson gson = new Gson();
+		return gson.toJson(list);
 	}
 
 }
