@@ -9,8 +9,8 @@
 <h3>모든 부서의 정보를 출력합니다.</h3>
 <!-- deptAll : List<Dept> -->
 <c:forEach items="${deptAll}" var="dept">
-	${dept.deptno} / ${dept.dname} / ${dept.loc}
-	<br>
+	<a href="update/${dept.deptno}">${dept.deptno}</a> / ${dept.dname} / ${dept.loc} 
+	<button type="button" onclick="location.href='delete/${dept.deptno}'">삭제</button><br>
 </c:forEach>
 </body>
 </html>

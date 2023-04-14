@@ -14,11 +14,28 @@ public class DeptService {
 	@Autowired
 	DeptDao dao;
 	
+	public int addDept(Dept dept) {
+		int x = dao.addDept(dept);
+		return x;
+	}
+	
 	public List<Dept> deptAll(){
 		return dao.deptAll();
 	}
 	
 	public int nwDeptno() {
 		return dao.nwDeptno();
+	}
+	
+	public void updateDept(Dept dept) {
+		dao.updateDept(dept);
+	}
+	
+	public void delDept(int deptno) {
+		dao.delDept(deptno);
+	}
+	
+	public List<Dept> searchDname(String search){
+		return dao.searchDname(search);
 	}
 }
