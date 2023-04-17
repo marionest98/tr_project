@@ -41,18 +41,24 @@ public class BookController {
 	}
 	@PostMapping("/searchOrders")
 	public String searchOrders(@DateTimeFormat(pattern = "yyyy-MM-dd") Date startdate, @DateTimeFormat(pattern = "yyyy-MM-dd") Date enddate, String name, Model m) {
-		if(name == null) {
-			m.addAttribute("startdate", startdate);
-			m.addAttribute("enddate", enddate);
+		m.addAttribute("startdate", startdate);
+		m.addAttribute("enddate", enddate);
+		m.addAttribute("name", name);
+		if(name == null) {			
 			List<Map<String, Object>> list = bservice.searchOders(startdate, enddate);
 			m.addAttribute("list", list);
 			m.addAttribute("size", list.size());
-		}else {
-			m.addAttribute("name", name);
+		}else {			
 			List<Map<String, Object>> list = bservice.searchOdersName(name);
 			m.addAttribute("list", list);
 			m.addAttribute("size", list.size());
 		}			
 		return "book/searchOrders";
+	}
+	
+	@GetMapping("/add")
+	public String addBook(Model m) {
+		m.addAttribute("add", m);
+		return "book/addBookform";
 	}
 }

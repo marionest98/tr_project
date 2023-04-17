@@ -7,7 +7,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import com.book.dao.BookDao;
 import com.book.dto.Book;
@@ -39,7 +39,9 @@ public class BookService {
 		return dao.searchOdersName(name);
 	};
 	
-	public int addBook(Book book) {
-		return dao.addBook(book);
-	};
+	@Transactional
+	public void addBook(Book b) {
+		dao.addBook(b);
+		//dao.addBook(b);
+	}
 }

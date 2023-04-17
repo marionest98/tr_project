@@ -29,4 +29,5 @@ public interface BookDao {
 	
 	@Insert("insert into book (bookid, bookname, publisher, price) values(#{bookid},#{bookname},#{publisher},#{price})")
 	public int addBook(Book book);
+	
 }
