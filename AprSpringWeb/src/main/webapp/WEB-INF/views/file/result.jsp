@@ -12,7 +12,7 @@
 파일명 : ${dto.name}<br>
 파일 사이즈 : ${dto.filesize}<br>
 업로드 된 파일이름 : ${dto.path}<br>
-<img src="/mainImg/${dto.path}" alt="test">
+<img src="/mainImg/${dto.path}" alt="${dto.description}">
 </c:if>
 <c:if test="${dto == null}">
 파일을 선택하지 않았습니다.<br>

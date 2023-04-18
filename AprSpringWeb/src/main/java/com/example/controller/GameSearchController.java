@@ -52,7 +52,7 @@ public class GameSearchController {
 	
 	@ExceptionHandler(NullPointerException.class)
 	public String handleNullPointerException(NullPointerException ex) {
-		return "error/nullException";
+		return "error/nullException";//view네임
 	}
 	
 	public void setSearchService(SearchService searchService) {

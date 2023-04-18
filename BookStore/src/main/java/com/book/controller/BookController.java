@@ -57,8 +57,16 @@ public class BookController {
 	}
 	
 	@GetMapping("/add")
-	public String addBook(Model m) {
+	public String addBookform(Model m) {
 		m.addAttribute("add", m);
 		return "book/addBookform";
+	}
+	
+	@PostMapping("/add")
+	public String add(Book book, Model m) {
+		bservice.addBook(book);
+		List<Book> bList = bservice.bookAll();
+		m.addAttribute("bookAll", bList);
+		return "book/bookAll";
 	}
 }

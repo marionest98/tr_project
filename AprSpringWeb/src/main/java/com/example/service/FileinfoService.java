@@ -24,5 +24,9 @@ public class FileinfoService {
 	public FileinfoDto fileOne(int fileid) {
 		return dao.fileOne(fileid);
 	}
+	
+	public int deleteFile(int fileid) {
+		return dao.deleteFile(fileid);
+	}
 
 }

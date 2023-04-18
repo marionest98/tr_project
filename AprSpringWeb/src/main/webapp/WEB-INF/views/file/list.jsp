@@ -11,9 +11,15 @@
 	<tr><th>파일 번호</th><th>파일 이름</th><th>파일 크기</th><th>미리보기</th></tr>
 	<c:forEach items="${fList}" var="file">
 		<tr>
-			<td>${file.fileid}</td><td><a href="/filedownload/${file.fileid}">${file.name}</a></td><td>${file.filesize}</td><td><img src="/mainImg/${file.path}" width="50px" height="50px"></td>
+			<td>${file.fileid}</td><td><a href="/filedownload/${file.fileid}">${file.name}</a></td><td>${file.filesize}</td><td><img src="/mainImg/${file.path}" width="50px" height="50px" alt="${file.description}"></td>
+			<td><button type="button" onclick="deleteFile(${file.fileid})">삭제</button></td>
 		</tr>
 	</c:forEach>
 </table>
+<script>
+	function deleteFile(id){
+		location.href="/deleteFile/"+id;
+	}
+</script>
 </body>
 </html>

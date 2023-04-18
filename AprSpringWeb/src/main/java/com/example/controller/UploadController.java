@@ -27,6 +27,22 @@ public class UploadController {
 	@Autowired
 	FileinfoService service;
 	
+	@GetMapping("/deleteFile/{fileid}")
+	public String deletefile(@PathVariable("fileid") int id, HttpServletRequest request){
+		FileinfoDto dto = service.fileOne(id);
+		String path = null;
+		path = request.getServletContext().getRealPath("/mainImg");
+		File file = new File(path, dto.getPath());
+		
+		if(file.exists()) {
+			file.delete();// 업로드 된 파일 삭제
+		}
+		
+		service.deleteFile(id);
+		
+		return "redirect:/list";
+	}
+	
 	@GetMapping("/filedownload/{fileid}")
 	public void fileDownload(@PathVariable("fileid") int id, HttpServletResponse response, HttpServletRequest request) throws IOException {
 		FileinfoDto dto = service.fileOne(id);
@@ -35,7 +51,7 @@ public class UploadController {
 		File file = new File(path, dto.getPath());
 		
 		String fileName = new String(dto.getName().getBytes("utf-8"), "iso-8859-1");
-		response.setContentType("application/octet-stream; charset=utf-8");
+		response.setContentType("application/octet-stream; charset=utf-8");//화면에 출력되지 않고 다운받을수 있게한다.
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\";");//다운로드 받을 파일명 지정
 		response.setHeader("Content-Transfer-Encoding", "binary");
 		OutputStream out = response.getOutputStream();
@@ -69,12 +85,13 @@ public class UploadController {
 	@PostMapping("/upload")
 	public String submit(String description, MultipartFile file, Model m, HttpServletRequest request) {
 		if(!file.getOriginalFilename().equals("")) {
-			String fileName = upload(file, request);
+			String fileName = upload(file, request);//localhost로 출력하기 위해 request를 넣는다
 			
 			FileinfoDto dto = new FileinfoDto();
 			dto.setName(file.getOriginalFilename());
 			dto.setPath(fileName);
 			dto.setFilesize(file.getSize());
+			dto.setDescription(description);
 			
 			service.insertFile(dto);
 			
@@ -92,6 +109,7 @@ public class UploadController {
 		String fileName = System.currentTimeMillis() + "_" + r.nextInt(50) + "." + ext;
 		
 		try {
+			//String path = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
 			String path = request.getServletContext().getRealPath("/mainImg");
 			File f = new File(path, fileName);
 			file.transferTo(f);
@@ -100,6 +118,8 @@ public class UploadController {
 		}
 		return fileName;
 	}
+	
+	
 	
 	
 }
