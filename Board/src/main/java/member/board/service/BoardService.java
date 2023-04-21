@@ -21,9 +21,10 @@ public class BoardService {
 	}
 	
 	public List<BoardDto> boardList(int start){
+		
 		Map<String, Object> m = new HashMap<String, Object>();
 		m.put("start", start);
-		m.put("cout", 10);
+		m.put("count", 10);
 		return dao.boardList(m);
 	}
 	
@@ -32,6 +33,7 @@ public class BoardService {
 	}
 	
 	public BoardDto boardOne(int no) {
+		dao.addReadcount(no);
 		return dao.boardOne(no);
 	}
 	
@@ -41,6 +43,22 @@ public class BoardService {
 	
 	public int deleteBoard(int no) {
 		return dao.deleteBoard(no);
+	}
+	
+	public List<BoardDto> boardListSearch(int searchn, String search, int start){
+		Map<String, Object> m = new HashMap<String, Object>();
+		m.put("searchn", searchn);
+		m.put("search", search);
+		m.put("start", start);
+		m.put("count", 10);
+		return dao.boardListSearch(m);
+	}
+	public int countSearch(int searchn, String search) {
+		//System.out.println(searchn+search);
+		Map<String, Object> m = new HashMap<String, Object>();
+		m.put("searchn", searchn);
+		m.put("search", search);
+		return dao.countSearch(m);
 	}
 	
 }
