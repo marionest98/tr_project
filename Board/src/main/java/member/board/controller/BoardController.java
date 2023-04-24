@@ -82,8 +82,10 @@ public class BoardController {
 	public String content(@ModelAttribute("user")MemDto user, @PathVariable int no, Model m) {
 		BoardDto dto = service.boardOne(no);
 		m.addAttribute("dto", dto);
+		
 		List<CommDto> cList = c_service.selectComm(no);
 		m.addAttribute("cList", cList);
+		
 		return "board/content";
 	}
 	

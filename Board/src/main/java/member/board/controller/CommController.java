@@ -1,30 +1,35 @@
 package member.board.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.google.gson.Gson;
 
 import member.board.dto.CommDto;
 import member.board.service.CommService;
 
-@Controller
+@RestController
 public class CommController {
 	@Autowired
 	CommService service;
 	
 	@GetMapping("/comm/insert")
-	@ResponseBody
+	//@ResponseBody
 	public String insertComm(CommDto dto) {
-		int i = service.insertComm(dto);
-		return i+"";
+		service.insertComm(dto);
+		List<CommDto> cList = service.selectComm(dto.getNo());
+		Gson gson = new Gson();
+		return gson.toJson(cList); // List -> js.array
 	}
 	
 	@GetMapping("/comm/delete/{cno}")
-	@ResponseBody
+	//@ResponseBody
 	public String deleteComm(@PathVariable int cno) {
-		int i = service.deleteComm(cno);
-		return i+"";
+		service.deleteComm(cno);
+		return cno+"";
 	}
 }
