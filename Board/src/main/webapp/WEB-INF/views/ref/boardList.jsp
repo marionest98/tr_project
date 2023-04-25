@@ -18,7 +18,6 @@
 	<!-- container -->
 	<div id="container">
 		<p class="all_txt">글목록 <span>(전체글 : ${count})</span></p>
-		
 		<div class="table_grp">
 			<div class="table_type_04">
 				<table>

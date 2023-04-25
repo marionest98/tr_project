@@ -44,8 +44,8 @@ public class RefboardService {
 		return dao.selectOne(no);
 	}
 	
-	public int updateContent(int no) {
-		return dao.updateContent(no);
+	public void updateContent(RefboardDto dto) {
+		dao.updateContent(dto);
 	}
 	
 	public int deleteContent(int no) {

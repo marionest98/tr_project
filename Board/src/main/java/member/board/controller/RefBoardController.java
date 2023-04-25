@@ -71,14 +71,16 @@ public class RefBoardController {
 		service.deleteContent(no);
 		return "redirect:/ref/list";
 	}
-	@GetMapping("/ref/update")
-	public String updatecontent(@ModelAttribute("dto") RefboardDto dto) {
+	@GetMapping("/ref/update/{no}")
+	public String updateform(@PathVariable int no, Model m) {
+		m.addAttribute("no", no);
 		return "ref/update";
 	}
 	
-	@PostMapping("/ref/update")
+	@PostMapping("/ref/update/{no}")
 	public String update(RefboardDto dto) {
 		service.updateContent(dto);
+		return "redirect:/ref/list";
 	}
 	
 	

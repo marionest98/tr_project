@@ -34,8 +34,8 @@ public interface RefboardDao {
 	RefboardDto selectOne(int no);
 	
 	//update, delete 추가해주세
-	@Update("update refboard set subject, content where no = #{no}")
-	int updateContent(int no);
+	@Update("update refboard set subject = #{subject}, content = #{content} where no = #{no}")
+	int updateContent(RefboardDto dto);
 	
 	@Delete("delete from refboard where no = #{no};")
 	int deleteContent(int no);

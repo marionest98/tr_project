@@ -54,14 +54,14 @@
 				<span class="btn btnF_03 btnC_02 mr5">
 					<input type="button" value="답글쓰기" onclick="location.href='/ref/write?no=${article.no}&ref=${article.ref}&re_step=${article.re_step}&re_level=${article.re_level}'"/>
 				</span>
-				<span class="btn btnF_03 btnC_02">
+				<span class="btn btnF_03 btnC_02 mr5">
 					<input type="button" value="목록" onclick="location.href='../list'"/>
 				</span>
-				<span class="btn btnF_03 btnC_02 mr6">
+				<span class="btn btnF_03 btnC_02 mr5">
 					<input type="button" value="글삭제" onclick="location.href='/ref/delete/${article.no}'"/>
 				</span>
-				<span class="btn btnF_03 btnC_02 mr7">
-					<input type="button" value="글수정" onclick="location.href='/ref/update'"/>
+				<span class="btn btnF_03 btnC_02 mr5">
+					<input type="button" value="글수정" onclick="location.href='/ref/update/${article.no}'"/>
 				</span>
 			</div>
 		</div>

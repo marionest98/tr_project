@@ -16,12 +16,10 @@
 	
 	<!-- container -->
 	<div id="container">
-		<form method="post" name="updateform">
+		<form method="post">
 			<fieldset>
 				<legend>게시판 글쓰기 입력폼</legend>
-				<input type="hidden" name="ref" value="${dto.ref}"/>
-				<input type="hidden" name="re_step" value="${dto.re_step}"/>
-				<input type="hidden" name="re_level" value="${dto.re_level}"/>
+				<input type="hidden" name="no" value="${no}"/>
 				<div class="table_grp">
 					<div class="table_type_01">
 						<table>
@@ -54,7 +52,7 @@
 						<span class="btn btnF_03 btnC_03 mr5">
 							<input type="reset" value="다시작성"/>
 						</span>
-						<a href="list" class="btn btnF_03 btnC_02">
+						<a href="../list" class="btn btnF_03 btnC_02">
 							<span>글목록</span>
 						</a>
 					</div>
